@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: roboto;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: #8afcac;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container .hamMenu {
+  height: 1.6rem;
+  width: 2.3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container .hamMenu span {
+  display: inline-block;
+  height: .3rem;
+  width: 100%;
+  background-color: #0a6272;
+}
+.container input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  height: 2rem;
+  width: 2.5rem;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+.hamMenu span:nth-child(2) {
+  transform: scale(1,1);
+  transition: all 300ms ease-in;
+}
+.container input[type="checkbox"]:checked ~ .hamMenu span:nth-child(2) {
+  transform: scale(0,1);
+}
+.container input[type="checkbox"]:checked ~ .hamMenu span:nth-child(1) {
+  animation: slide 400ms ease-out forwards;
+  animation-delay: 300ms;
+}
+
+.container input[type="checkbox"]:checked ~ .hamMenu span:nth-child(3) {
+  animation: slide2 400ms ease-out forwards;
+  animation-delay: 300ms;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(.65rem) rotate(0);
+  }
+  100% {
+    transform: translateY(.65rem) rotate(45deg);
+  }
+}
+@keyframes slide2 {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-.65rem) rotate(0);
+  }
+  100% {
+    transform: translateY(-.65rem) rotate(-45deg);
+  }
+}
